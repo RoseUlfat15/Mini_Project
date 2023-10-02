@@ -1,9 +1,10 @@
 // ignore: file_names
 // ignore_for_file: prefer_const_constructors
+import 'package:app_figma/Screens/groceryhome.dart';
+import 'package:app_figma/widgets/Color_Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../GroceryHome/groceryhome.dart';
-import '../color_constant.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -20,14 +21,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       "Image": 'assets/Images/Emoji.png',
       "belowText":
           'Theres something for everyone to enjoy with Sweet shop Favourites Screen 1',
-      "ImageIcon": 'assets/Images/icon.png',
+      "ImageIcon": 'assets/Images/delivery.png',
     },
     {
       "Text": 'Your holiday shopping delivered to screen Two ',
       "Image": 'assets/Images/Emoji.png',
       "belowText":
           'Theres something for everyone to enjoy with Sweet shop Favourites Screen 2',
-      "ImageIcon": 'assets/Images/icon.png',
+      "ImageIcon": 'assets/Images/delivery.png',
     }
   ];
   final PageController _pageController = PageController(initialPage: 0);
@@ -46,36 +47,36 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               itemCount: 2,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.fromLTRB(33, 50, 50, 0),
+                  padding: const EdgeInsets.fromLTRB(33, 60, 50, 0),
                   child: Column(
                     children: [
                       Text(
                         ScreenData[index]['Text'],
-                        style: const TextStyle(
-                          fontSize: 32,
+                        style: GoogleFonts.manrope(
+                          fontSize: 38,
                           color: Color.fromARGB(255, 248, 247, 247),
-                          fontFamily: 'TulpenOne',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       Image.asset(ScreenData[index]['Image']),
                       const SizedBox(
-                        height: 20,
+                        height: 25,
                       ),
                       Text(
                         ScreenData[index]['belowText'],
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           color: Color.fromARGB(255, 248, 247, 247),
                           fontFamily: 'TulpenOne',
                         ),
                       ),
                       const SizedBox(
-                        height: 70,
+                        height: 60,
                       ),
                       Image.asset(
                         ScreenData[index]['ImageIcon'],
-                        height: 130,
-                        width: 100,
+                        height: 220,
+                        width: 175,
                       ),
                     ],
                   ),
@@ -89,7 +90,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => GroceryHome()),
+                  MaterialPageRoute(builder: (context) => GroceryHome("Home")),
                 );
               },
               child: Container(
@@ -108,9 +109,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   children: [
                     Text(
                       "Get Started",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16.0,
                         color: Color(0xff1E222B),
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(width: 20),
